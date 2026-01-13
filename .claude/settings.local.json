@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(npx prisma db seed:*)",
+      "Bash(npx prisma db execute:*)",
+      "Bash(curl:*)",
+      "Bash(npm start)",
+      "Bash(npx kill-port:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm install)",
+      "Bash(timeout /t 5 /nobreak)",
+      "Bash(if exist .nextdev rmdir /s /q .nextdev)",
+      "Bash(cat:*)",
+      "Bash(dir /b)",
+      "Bash(ls:*)",
+      "Bash(dir \"C:\\\\Users\\\\User\\\\Documents\\\\New folder \\(5\\)\\\\monate-cakes\\\\public\\\\images\")",
+      "Bash(dir \"C:\\\\Users\\\\User\\\\Documents\\\\New folder \\(5\\)\\\\monate-cakes\\\\public\\\\images\" /b)",
+      "Bash(taskkill:*)",
+      "Bash(timeout 5 cat:*)",
+      "Bash(pkill:*)",
+      "Bash(while read file)",
+      "Bash(do cp \"$file\" \"Queens-Scone-Kitchen.jpeg\")",
+      "Bash(done)",
+      "Bash(python3:*)",
+      "Bash(powershell.exe -Command:*)",
+      "Bash(find:*)"
+    ]
+  }
+}
