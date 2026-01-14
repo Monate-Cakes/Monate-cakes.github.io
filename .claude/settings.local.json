@@ -29,7 +29,8 @@
       "Bash(git commit -m \"$\\(cat <<''EOF''\nFix GitHub Pages deployment with proper static export\n\n- Added .nojekyll file to prevent Jekyll processing\n- Rebuilt Next.js site with static export\n- Copied all build files to repository root for GitHub Pages\n- Fixed asset paths for proper deployment\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git reset:*)",
       "Bash(git commit:*)",
-      "Bash(xcopy:*)"
+      "Bash(xcopy:*)",
+      "Bash(git ls-tree:*)"
     ]
   }
 }

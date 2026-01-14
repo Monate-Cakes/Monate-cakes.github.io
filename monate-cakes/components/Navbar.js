@@ -141,6 +141,11 @@ export default function Navbar({ theme, setTheme }) {
       <style jsx>{`
         /* Promo Banner */
         .promo-banner {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1001;
           background: linear-gradient(90deg, #C4956A 0%, #A67C52 100%);
           color: white;
           text-align: center;
@@ -167,7 +172,14 @@ export default function Navbar({ theme, setTheme }) {
           z-index: 1000;
           padding: 16px 0;
           transition: all 0.3s ease;
-          background: transparent;
+          background: rgba(15, 15, 15, 0.95);
+          backdrop-filter: blur(20px);
+        }
+
+        @media (min-width: 768px) {
+          .navbar-custom {
+            background: transparent;
+          }
         }
 
         .navbar-custom.scrolled {
@@ -363,7 +375,7 @@ export default function Navbar({ theme, setTheme }) {
           position: fixed;
           inset: 0;
           background: rgba(0, 0, 0, 0.5);
-          z-index: 1001;
+          z-index: 2001;
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
@@ -383,7 +395,7 @@ export default function Navbar({ theme, setTheme }) {
           width: 85%;
           max-width: 320px;
           background: #0F0F0F;
-          z-index: 1002;
+          z-index: 2002;
           transform: translateX(100%);
           transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           display: flex;
