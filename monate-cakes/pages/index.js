@@ -9,7 +9,12 @@ import { partnersData } from '../data/partnersData';
 
 export default function Home({ theme, setTheme }) {
   const [selected, setSelected] = useState({ province: 'KwaZulu-Natal', city: 'Durban' });
-  const [partners, setPartners] = useState([]);
+
+  // Initialize with Durban bakers for static generation
+  const initialBakers = partnersData.filter(
+    p => p.province === 'KwaZulu-Natal' && p.city === 'Durban'
+  );
+  const [partners, setPartners] = useState(initialBakers);
 
   const fetchPartners = ({ province, city }) => {
     const filtered = partnersData.filter(
@@ -20,7 +25,7 @@ export default function Home({ theme, setTheme }) {
 
   useEffect(() => {
     fetchPartners(selected);
-  }, []);
+  }, [selected]);
 
   useEffect(() => {
     // Immediately add 'animated' class to all elements to ensure visibility
