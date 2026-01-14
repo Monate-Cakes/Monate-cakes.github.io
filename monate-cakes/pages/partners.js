@@ -918,6 +918,32 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           .modal-hero-content h2 { font-size: 1.5rem; }
           .info-grid, .contact-grid { grid-template-columns: 1fr; }
           .review-header { flex-direction: column; gap: 12px; }
+
+          .modal-tabs {
+            padding: 0 16px;
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+          }
+
+          .modal-tabs::-webkit-scrollbar {
+            display: none;
+          }
+
+          .tab {
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+          }
+
+          .modal-body {
+            padding: 20px 16px;
+          }
+
+          .modal-content {
+            border-radius: 16px;
+            max-height: 95vh;
+          }
         }
       `}</style>
     </div>
