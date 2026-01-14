@@ -18,6 +18,11 @@ export default function Careers({ theme, setTheme }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
+    // Immediately add 'animated' class to all elements to ensure visibility
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      el.classList.add('animated');
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
