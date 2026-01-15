@@ -292,7 +292,7 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           inset: 0;
           background: rgba(0, 0, 0, 0.85);
           backdrop-filter: blur(10px);
-          z-index: 1000;
+          z-index: 1100;
           display: flex;
           align-items: center;
           justify-content: center;
