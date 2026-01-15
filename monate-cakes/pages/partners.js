@@ -305,7 +305,7 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           width: 100%;
           max-width: 700px;
           max-height: 90vh;
-          overflow: hidden;
+          overflow-y: auto;
           position: relative;
           display: flex;
           flex-direction: column;
@@ -401,6 +401,9 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           overflow-x: auto;
           background: var(--bg-secondary, #0a0a0a);
           flex-shrink: 0;
+          position: sticky;
+          top: 0;
+          z-index: 100;
         }
 
         .modal-overlay.light .modal-tabs {
@@ -440,9 +443,7 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
 
         .modal-body {
           padding: 24px;
-          overflow-y: auto;
           flex: 1;
-          min-height: 0;
         }
 
         .tab-content h3 {
@@ -944,9 +945,6 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
             padding: 0 16px;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            position: sticky;
-            top: 0;
-            z-index: 10;
           }
 
           .modal-tabs::-webkit-scrollbar {
