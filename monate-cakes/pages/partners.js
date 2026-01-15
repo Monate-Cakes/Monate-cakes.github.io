@@ -974,10 +974,23 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
             z-index: 100;
             border-bottom: 2px solid rgba(212, 165, 116, 0.3);
             gap: 0;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
           }
 
           .modal-overlay.light .modal-tabs {
-            background: #F9F9F9;
+            background: #FFFFFF;
+            border-bottom: 2px solid rgba(196, 149, 106, 0.4);
+          }
+
+          .modal-overlay.light .tab {
+            color: #555555;
+            font-weight: 600;
+          }
+
+          .modal-overlay.light .tab.active {
+            color: #C4956A;
           }
 
           .modal-tabs::-webkit-scrollbar {
