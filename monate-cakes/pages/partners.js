@@ -968,8 +968,6 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
             padding: 0 12px;
             scrollbar-width: none;
             background: #111111;
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
             position: -webkit-sticky;
             position: sticky;
             top: 0;
@@ -1248,7 +1246,7 @@ export default function Partners({ theme, setTheme }) {
     <>
       <Head>
         <title>Our Bakers | Monate Cakes</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content={theme === 'dark' ? '#0F0F0F' : '#FDF8F3'} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
