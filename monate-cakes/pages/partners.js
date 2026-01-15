@@ -944,6 +944,9 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
             padding: 0 16px;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
+            position: sticky;
+            top: 0;
+            z-index: 10;
           }
 
           .modal-tabs::-webkit-scrollbar {
