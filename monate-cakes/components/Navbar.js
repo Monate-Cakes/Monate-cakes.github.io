@@ -5,6 +5,7 @@ import Link from 'next/link';
 export default function Navbar({ theme, setTheme }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,11 +38,14 @@ export default function Navbar({ theme, setTheme }) {
 
   return (
     <>
-      <div className="promo-banner">
-        <span>🎉 New Year Special: Get 15% OFF on all custom cakes! Use code <span className="promo-code">NEWYEAR15</span></span>
-      </div>
+{showBanner && (
+        <div className="promo-banner">
+          <span>🎉 New Year Special: Get 15% OFF on all custom cakes! Use code <span className="promo-code">NEWYEAR15</span></span>
+          <button className="promo-close" onClick={() => setShowBanner(false)} aria-label="Close banner">✕</button>
+        </div>
+      )}
 
-      <nav className={`navbar-custom ${scrolled ? 'scrolled' : ''} ${theme}`}>
+      <nav className={`navbar-custom ${scrolled ? 'scrolled' : ''} ${theme} ${!showBanner ? 'no-banner' : ''}`}>
         <div className="container">
           <div className="navbar-inner">
             <Link href="/" className="nav-brand">
@@ -149,10 +153,36 @@ export default function Navbar({ theme, setTheme }) {
           background: linear-gradient(90deg, #C4956A 0%, #A67C52 100%);
           color: white;
           text-align: center;
-          padding: 10px 20px;
+          padding: 10px 40px 10px 20px;
           font-family: 'Outfit', sans-serif;
           font-size: 0.85rem;
           font-weight: 500;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .promo-close {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(255, 255, 255, 0.2);
+          border: none;
+          color: white;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.2s;
+        }
+
+        .promo-close:hover {
+          background: rgba(255, 255, 255, 0.3);
         }
 
         .promo-code {
@@ -174,6 +204,10 @@ export default function Navbar({ theme, setTheme }) {
           transition: all 0.3s ease;
           background: rgba(15, 15, 15, 0.95);
           backdrop-filter: blur(20px);
+        }
+
+        .navbar-custom.no-banner {
+          top: 0;
         }
 
         @media (min-width: 768px) {
