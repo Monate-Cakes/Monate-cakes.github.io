@@ -305,8 +305,10 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           width: 100%;
           max-width: 700px;
           max-height: 90vh;
-          overflow-y: auto;
+          overflow: hidden;
           position: relative;
+          display: flex;
+          flex-direction: column;
         }
 
         .modal-overlay.light .modal-content {
@@ -338,6 +340,7 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           overflow: hidden;
           border-radius: 24px 24px 0 0;
           background: #1a1a1a;
+          flex-shrink: 0;
         }
 
         .modal-hero img {
@@ -397,6 +400,7 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           padding: 0 24px;
           overflow-x: auto;
           background: var(--bg-secondary, #0a0a0a);
+          flex-shrink: 0;
         }
 
         .modal-overlay.light .modal-tabs {
@@ -436,6 +440,9 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
 
         .modal-body {
           padding: 24px;
+          overflow-y: auto;
+          flex: 1;
+          min-height: 0;
         }
 
         .tab-content h3 {
@@ -914,14 +921,27 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
         }
 
         @media (max-width: 640px) {
-          .modal-hero { height: 220px; }
-          .modal-hero-content h2 { font-size: 1.5rem; }
-          .info-grid, .contact-grid { grid-template-columns: 1fr; }
-          .review-header { flex-direction: column; gap: 12px; }
+          .modal-overlay {
+            padding: 0;
+            align-items: flex-start;
+          }
+
+          .modal-content {
+            border-radius: 16px;
+            max-height: 100vh;
+            height: 100vh;
+          }
+
+          .modal-hero {
+            height: 200px;
+          }
+
+          .modal-hero-content h2 {
+            font-size: 1.5rem;
+          }
 
           .modal-tabs {
             padding: 0 16px;
-            overflow-x: scroll;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
           }
@@ -933,16 +953,19 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           .tab {
             padding: 14px 16px;
             font-size: 0.9rem;
-            flex-shrink: 0;
           }
 
           .modal-body {
             padding: 20px 16px;
           }
 
-          .modal-content {
-            border-radius: 16px;
-            max-height: 95vh;
+          .info-grid, .contact-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .review-header {
+            flex-direction: column;
+            gap: 12px;
           }
         }
       `}</style>
