@@ -319,6 +319,7 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           display: flex;
           flex-direction: column;
           min-height: 0;
+          position: relative;
         }
 
         .modal-overlay.light .modal-content {
@@ -950,23 +951,34 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
             font-size: 1.5rem;
           }
 
+          .modal-scrollable {
+            -webkit-overflow-scrolling: touch;
+          }
+
           .modal-tabs {
             padding: 0 16px;
-            -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
+            background: var(--bg-secondary, #0a0a0a);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+          }
+
+          .modal-overlay.light .modal-tabs {
+            background: #F9F9F9;
           }
 
           .modal-tabs::-webkit-scrollbar {
             display: none;
           }
 
+          .modal-body {
+            padding: 20px 16px;
+            -webkit-overflow-scrolling: touch;
+          }
+
           .tab {
             padding: 14px 16px;
             font-size: 0.9rem;
-          }
-
-          .modal-body {
-            padding: 20px 16px;
           }
 
           .info-grid, .contact-grid {
