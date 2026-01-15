@@ -407,14 +407,15 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
 
         .modal-tabs {
           display: flex;
-          border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+          border-bottom: 2px solid var(--border-color, rgba(255, 255, 255, 0.15));
           padding: 0 24px;
           overflow-x: auto;
-          background: var(--bg-secondary, #0a0a0a);
+          background: var(--bg-card, #111111);
           position: sticky;
           top: 0;
           z-index: 100;
           flex-shrink: 0;
+          gap: 8px;
         }
 
         .modal-overlay.light .modal-tabs {
@@ -426,12 +427,17 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           padding: 16px 20px;
           background: none;
           border: none;
-          color: var(--text-muted, rgba(255, 255, 255, 0.5));
+          color: rgba(255, 255, 255, 0.75);
           font-size: 0.95rem;
-          font-weight: 500;
+          font-weight: 600;
           cursor: pointer;
           position: relative;
           white-space: nowrap;
+          transition: color 0.2s ease;
+        }
+
+        .tab:hover {
+          color: rgba(255, 255, 255, 0.95);
         }
 
         .modal-overlay.light .tab {
@@ -959,15 +965,17 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           }
 
           .modal-tabs {
-            padding: 0 16px;
+            padding: 0 12px;
             scrollbar-width: none;
-            background: var(--bg-secondary, #0a0a0a);
+            background: #111111;
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             position: -webkit-sticky;
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 2px solid rgba(212, 165, 116, 0.3);
+            gap: 0;
           }
 
           .modal-overlay.light .modal-tabs {
@@ -984,8 +992,14 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           }
 
           .tab {
-            padding: 14px 16px;
-            font-size: 0.9rem;
+            padding: 14px 12px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+          }
+
+          .tab.active {
+            color: #D4A574;
           }
 
           .info-grid, .contact-grid {
