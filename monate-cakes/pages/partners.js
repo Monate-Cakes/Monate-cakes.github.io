@@ -95,19 +95,20 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           </div>
         </div>
 
-        <div className="modal-tabs">
-          {['about', 'menu', 'reviews', 'contact'].map(tab => (
-            <button
-              key={tab}
-              className={`tab ${activeTab === tab ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab === 'reviews' ? `Reviews (${allReviews.length})` : tab.charAt(0).toUpperCase() + tab.slice(1)}
-            </button>
-          ))}
-        </div>
+        <div className="modal-scrollable">
+          <div className="modal-tabs">
+            {['about', 'menu', 'reviews', 'contact'].map(tab => (
+              <button
+                key={tab}
+                className={`tab ${activeTab === tab ? 'active' : ''}`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab === 'reviews' ? `Reviews (${allReviews.length})` : tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+            ))}
+          </div>
 
-        <div className="modal-body">
+          <div className="modal-body">
           {activeTab === 'about' && (
             <div className="tab-content">
               <div className="about-section">
@@ -282,6 +283,7 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
             </div>
           )}
         </div>
+        </div>
       </div>
 
       <style jsx>{`
@@ -305,10 +307,18 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           width: 100%;
           max-width: 700px;
           max-height: 90vh;
-          overflow-y: auto;
+          overflow: hidden;
           position: relative;
           display: flex;
           flex-direction: column;
+        }
+
+        .modal-scrollable {
+          flex: 1;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          min-height: 0;
         }
 
         .modal-overlay.light .modal-content {
@@ -400,10 +410,10 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
           padding: 0 24px;
           overflow-x: auto;
           background: var(--bg-secondary, #0a0a0a);
-          flex-shrink: 0;
           position: sticky;
           top: 0;
           z-index: 100;
+          flex-shrink: 0;
         }
 
         .modal-overlay.light .modal-tabs {
@@ -443,7 +453,6 @@ const PartnerModal = ({ partner, onClose, reviews, onAddReview, theme }) => {
 
         .modal-body {
           padding: 24px;
-          flex: 1;
         }
 
         .tab-content h3 {
